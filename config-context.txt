@@ -69,5 +69,6 @@ runcmd:
  - apt-get update
  - apt-get -y upgrade
  - echo "--- Done with BASH commands ---"
+ - chown -R ubuntu: /home/ubuntu/
  
 final_message: "------ The system is finally up, after $UPTIME seconds --------"

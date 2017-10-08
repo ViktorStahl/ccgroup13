@@ -71,9 +71,11 @@ runcmd:
  - apt-get install apt-transport-https ca-certificates curl software-properties-common
  - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
  - add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
- - apt-get -y install docker-ce
  - apt-get update
  - apt-get -y upgrade
+ - apt-get -y install docker-ce
+ - groupadd docker
+ - usermod -aG docker ubuntu
  - echo "--- Done with BASH commands ---"
  
 final_message: "------ The system is finally up, after $UPTIME seconds --------"

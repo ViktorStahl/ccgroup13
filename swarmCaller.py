@@ -6,7 +6,7 @@ def benchop(problems=[1,2,3,4],methods=['MC','MC-S','QMC-S','MLMC','MLMC-A','FFT
 	for problem in problems:
 		for method in methods:
 			subprocess.call("docker service create --replicas 1 --name benchop"+ str(problem) + method +" maxwatson142/worker python benchop "+str(problem)+" "+method, shell=True)
-	return 0
+	return '0'
 
 def getResult():
 	try:
@@ -23,9 +23,10 @@ def postResult(result):
 		feeds.append(result)
 		json.dump(feeds, file)
 		file.close()
-		return 0
+		return '0'
 
 def deleteResult():
 	with open('/home/ubuntu/result.txt', mode='w+') as f:
 		json.dump([], f)
 		f.close()
+		return '0'

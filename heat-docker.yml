@@ -9,19 +9,19 @@ parameters:
     type: string
     label: Image name or ID
     description: Image to be used for compute instance
-    default: bcedbefb-9b05-43a6-8a04-93321066131e
+    default: 9fea0ce0-e500-4ed3-af74-7da48d24895e
 
   flavor:
     type: string
     label: Flavor
     description: Type of instance (flavor) to be used
-    default: m1.small
+    default: m1.medium
 
   key:
     type: string
     label: Key name
     description: Name of key-pair to be used for compute instance
-    default: <—MY_KEY_NAME->
+    default: Laptop
 
   public_network:
     type: string

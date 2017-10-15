@@ -17,14 +17,15 @@ def getResult():
 	except:
 		return {}
 
-def putResult(result):
-	with open('/home/result.txt', 'w') as file:
-		json.dump(result, file)
+def postResult(result):
+	with open('/home/result.txt', mode='a+', encoding='utf-8') as file:
+		feeds = json.load(file)
+		feeds.append(result)
+		json.dump(feeds, file)
 		file.close()
 		return 0
 
 def deleteResult():
-	try:
-		os.remove('/home/result.txt')
-	except:
-		pass
+	with open('home/result.txt', mode='w', encoding='utf-8') as f:
+		json.dump([], f)
+		f.close()

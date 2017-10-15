@@ -4,7 +4,7 @@ import sys
 import swarmCaller
 import time
 import json
-	
+
 app = Flask(__name__, static_folder='static')
 
 @app.route('/api/v1/benchop', methods=['GET'])
@@ -37,12 +37,13 @@ def benchop_post():
 def result_get():
 	result = swarmCaller.getResult()
 	return result
-	
-@app.route('/api/v1/result', methods=['PUT'])
-def result_put():
-	result = swarmCaller.putResult()
+
+@app.route('/api/v1/result', methods=['POST'])
+def result_post():
+	print(request.data)
+	result = swarmCaller.postResult(request.data)
 	return 0
-	
+
 @app.route('/api/v1/result', methods=['DELETE'])
 def apiDeleteResult():
 	result = swarmCaller.deleteResult()

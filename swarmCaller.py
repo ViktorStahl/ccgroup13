@@ -10,7 +10,7 @@ def benchop(problems=[],methods=[]):
 
 def getResult():
 	try:
-		with open('/home/ubuntu/result.txt', 'r') as file:
+		with open('/home/result.txt', 'r') as file:
 			result = json.load(file)
 			file.close()
 			return result
@@ -18,13 +18,13 @@ def getResult():
 		return {}
 
 def putResult(result):
-	with open('/home/ubuntu/result.txt', 'w') as file:
+	with open('/home/result.txt', 'w') as file:
 		json.dump(result, file)
 		file.close()
 		return 0
 
 def deleteResult():
 	try:
-		os.remove('/home/ubuntu/result.txt')
+		os.remove('/home/result.txt')
 	except:
 		pass

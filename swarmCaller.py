@@ -26,6 +26,6 @@ def postResult(result):
 		return 0
 
 def deleteResult():
-	with open('home/ubuntu/result.txt', mode='w+') as f:
+	with open('/home/ubuntu/result.txt', mode='w+') as f:
 		json.dump([], f)
 		f.close()

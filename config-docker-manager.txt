@@ -76,6 +76,9 @@ runcmd:
  - groupadd docker
  - usermod -aG docker ubuntu
  - echo "--- Done with BASH commands ---"
- - docker swarm init --advertise-addr <(ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' | grep 192*)
- 
+ - docker swarm init --advertise-addr `ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' | grep 192*`
+ - docker pull maxwatson142/master:latest
+ - docker pull maxwatson142/worker:latest
+ - docker run -d -p 5000:5000 maxwatson142/master python /home/app.py
+
 final_message: "------ The system is finally up, after $UPTIME seconds --------"

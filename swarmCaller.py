@@ -20,6 +20,7 @@ def getResult():
 def postResult(result):
 	with open('/home/ubuntu/result.txt', mode='a+') as file:
 		feeds = json.load(file)
+		print(result)
 		feeds.append(result)
 		json.dump(feeds, file)
 		file.close()

@@ -9,6 +9,7 @@ app = Flask(__name__, static_folder='static')
 
 @app.route('/api/v1/benchop', methods=['GET'])
 def benchop():
+	result = swarmCaller.deleteResult()
 	result = swarmCaller.benchop()
 	return 'HTTP status 200 (OK) Please wait while the data is processed \n The data can be found by sending a GET request to /api/v1/result in about 5 minutes'
 
@@ -28,6 +29,7 @@ def sayHi():
 
 @app.route('/api/v1/benchop', methods=['POST'])
 def benchop_post():
+	result = swarmCaller.deleteResult()
 	problems = request.form['problem'].split()
 	methods = request.form['method'].split()
 	result = swarmCaller.benchop(problems, methods)

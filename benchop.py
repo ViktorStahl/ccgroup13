@@ -7,7 +7,7 @@ import time
 #def benchop(problem, method, apiIP):
 def benchop(problem,method):
 	oc = oct2py.Oct2Py()
-	oc.addpath('/home/')
+	oc.addpath('/home/ccgroup13/')
 	start = time.time()
 	res = oc.feval(benchop, [problem, method]) 
 	timeTaken = time.time()-start
@@ -20,7 +20,7 @@ def benchop(problem,method):
 		print("Something went wrong") 
 		return
 if __name__ == '__main__':
-        benchop(sys.argv[1],sys.argv[2])
+	benchop(sys.argv[1],sys.argv[2])
 	#assert(len(sys.argv)>=2)
-        #benchop(sys.argv[1],sys.argv[2])
+	#benchop(sys.argv[1],sys.argv[2])
 	#benchop(sys.argv[1],sys.argv[2], sys.argv[3])

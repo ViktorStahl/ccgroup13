@@ -5,7 +5,7 @@ import os
 def benchop(problems=[1,2,3,4],methods=['MC','MC-S','QMC-S','MLMC','MLMC-A','FFT','FGL','COS','FD','FD-NU','FD-AD','RBF','RBF-FD','RBF-PUM','RBF-LSML','RBF-AD','RBF-MLT']):
 	for problem in problems:
 		for method in methods:
-			subprocess.call("docker service create --replicas 1 --name benchop"+ problem + method +" maxwatson142/worker python benchop "+problem+" "+method)
+			subprocess.call("docker service create --replicas 1 --name benchop"+ str(problem) + method +" maxwatson142/worker python benchop "+str(problem)+" "+method)
 	return 0
 
 def getResult():

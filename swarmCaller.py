@@ -24,7 +24,6 @@ def postResult(result):
 			feeds = json.load(file)
 		except:
 			pass
-		print(result)
 		feeds.append(result)
 		json.dump(feeds, file)
 		file.close()

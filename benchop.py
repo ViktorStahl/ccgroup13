@@ -9,7 +9,7 @@ def benchop(problem,method):
 	oc = oct2py.Oct2Py()
 	oc.addpath('/home/ccgroup13/')
 	start = time.time()
-	res = oc.feval(benchop, [problem, method]) 
+	res = oc.benchop(problem, method) 
 	timeTaken = time.time()-start
 	#res = subprocess.call(["Ocatave -r benchop "+problem+" "+method],shell=True) <- IF oct2py doesn't work
 	r = requests.post(apiIP+":5000/api/v1/result", data={'problem': problem, 'method': method, 'time': timeTaken, 'result': res})

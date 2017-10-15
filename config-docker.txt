@@ -34,6 +34,6 @@ runcmd:
  - groupadd docker
  - usermod -aG docker ubuntu
  - echo "--- Done with BASH commands ---"
- - docker maxwatson142/master:latest
+ - docker pull maxwatson142/worker:latest
  
 final_message: "------ The system is finally up, after $UPTIME seconds --------"

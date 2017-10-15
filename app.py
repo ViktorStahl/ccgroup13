@@ -42,7 +42,7 @@ def result_get():
 
 @app.route('/api/v1/result', methods=['POST'])
 def result_post():
-	print(request.data, file=sys.stderr)
+	print(request.data)
 	result = swarmCaller.postResult(request.data)
 	return '0'
 

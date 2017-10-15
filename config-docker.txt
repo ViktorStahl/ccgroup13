@@ -59,7 +59,6 @@ runcmd:
  - echo "PS1='\[\e[38;5;85m\]\W\[\e[m\]\[\e[38;5;45m\]$(parse_git_branch)\[\e[m\]\[\e[38;5;208m\] \\$\[\e[m\] '" >> /home/ubuntu/.bashrc
  - echo "--- Sourcing .bashrc ---"
  - source /home/ubuntu/.bashrc
- - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
  - echo "--- Upgrading pip ---"
  - pip install --upgrade pip
  - apt install software-properties-common

@@ -7,7 +7,7 @@ def benchop(problem, method, apiIP):
 	oc = oct2py.Oct2Py()
 	res = oc.benchop(problem,method)
 	#res = subprocess.call(["Ocatave -r benchop "+problem+" "+method],shell=True) <- IF oct2py doesn't work
-	r = requests.post(apiIP, data={'problem': problem, 'method': method, 'time': res.time, 'result': toJSONstr(res)})
+	r = requests.put(apiIP+":5000/api/v1/result", data={'problem': problem, 'method': method, 'time': res.time, 'result': toJSONstr(res)})
 	if (r.status_code//100)%10==2:
 		return
 	else:

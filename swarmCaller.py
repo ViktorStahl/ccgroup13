@@ -18,7 +18,7 @@ def getResult():
 		return {}
 
 def postResult(result):
-	with open('/home/ubuntu/result.txt', mode='a+') as file:
+	with open('/home/ubuntu/result.txt', mode='w+') as file:
 		feeds = json.load(file)
 		print(result)
 		feeds.append(result)

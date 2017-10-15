@@ -34,11 +34,11 @@ def benchop_post():
 	methods = request.form['method'].split()
 	result = swarmCaller.benchop(problems, methods)
 	return 'HTTP OK 200 Please wait while the data is processed \n The data can be found by sending a GET request to /api/v1/result in about 5 minutes'
-
+	
 @app.route('/api/v1/result', methods=['GET'])
 def result_get():
 	result = swarmCaller.getResult()
-	return result
+	return json.dumps(result)
 
 @app.route('/api/v1/result', methods=['POST'])
 def result_post():

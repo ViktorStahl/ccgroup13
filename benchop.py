@@ -7,15 +7,10 @@ import time
 #def benchop(problem, method, apiIP):
 def benchop(problem,method):
 	oc = oct2py.Oct2Py()
-<<<<<<< HEAD
-	res = oc.benchop(problem,method)
-        
-=======
-	oc.addpath('/home/ubuntu/')
+	oc.addpath('/home/')
 	start = time.time()
 	res = oc.feval(benchop, [problem method]) 
 	timeTaken = time.time()-start
->>>>>>> 9063e811ec5c9db11b0280e2e3b84b60202fd561
 	#res = subprocess.call(["Ocatave -r benchop "+problem+" "+method],shell=True) <- IF oct2py doesn't work
 	r = requests.post(apiIP+":5000/api/v1/result", data={'problem': problem, 'method': method, 'time': timeTaken, 'result': res})
 	if (r.status_code//100)%10==2:

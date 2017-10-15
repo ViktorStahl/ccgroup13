@@ -2,7 +2,7 @@ import json
 import subprocess
 import os
 
-def benchop(problems=[],methods=[]):
+def benchop(problems=[1,2,3,4],methods=['MC','MC-S','QMC-S','MLMC','MLMC-A','FFT','FGL','COS','FD','FD-NU','FD-AD','RBF','RBF-FD','RBF-PUM','RBF-LSML','RBF-AD','RBF-MLT']):
 	for problem in problems:
 		for method in methods:
 			subprocess.call("docker service create --replicas 1 --name benchop"+ problem + method +" maxwatson142/worker python benchop "+problem+" "+method)
@@ -18,7 +18,7 @@ def getResult():
 		return {}
 
 def postResult(result):
-	with open('/home/result.txt', mode='a+', encoding='utf-8') as file:
+	with open('/home/result.txt', mode='a+') as file:
 		feeds = json.load(file)
 		feeds.append(result)
 		json.dump(feeds, file)
@@ -26,6 +26,6 @@ def postResult(result):
 		return 0
 
 def deleteResult():
-	with open('home/result.txt', mode='w', encoding='utf-8') as f:
+	with open('home/result.txt', mode='w') as f:
 		json.dump([], f)
 		f.close()

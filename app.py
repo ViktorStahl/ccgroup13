@@ -46,8 +46,9 @@ def result_get():
 def result_post():
 	app.logger.info(request.form)
 	resdict = {}
+	resdict[request.form['problem'].encode('UTF8')+request.form['method'].encode('UTF8')] = {}
 	for word in request.form:
-		resdict[str(request.form['problem'])+request.form['method']][word.encode('UTF8')] = request.form[word.encode('UTF8')]
+		resdict[request.form['problem'].encode('UTF8')+request.form['method'].encode('UTF8')][word.encode('UTF8')] = request.form[word.encode('UTF8')].encode('UTF8')
 	app.logger.info(resdict)
 	result = swarmCaller.postResult(resdict)
 	return '0'

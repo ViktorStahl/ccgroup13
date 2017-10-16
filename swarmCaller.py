@@ -7,7 +7,7 @@ def benchop(problems=[1,2,3,4],methods=['COS','FD', 'RBF-FD']):
 	thread.start_new_thread(startServices, (problems, methods))
 	return '0'
 
-def startServices(problems, methods)
+def startServices(problems, methods):
 	for problem in problems:
 		for method in methods:
 			subprocess.call("docker service create --replicas 1 --name benchop"+ str(problem) + method +" maxwatson142/worker python benchop "+str(problem)+" "+method, shell=True)

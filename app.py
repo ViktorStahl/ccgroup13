@@ -4,6 +4,8 @@ import sys
 import swarmCaller
 import time
 import json
+import logging
+from logging.handlers import RotatingFileHandler
 
 app = Flask(__name__, static_folder='static')
 
@@ -42,8 +44,8 @@ def result_get():
 
 @app.route('/api/v1/result', methods=['POST'])
 def result_post():
-	print(request.data)
-	result = swarmCaller.postResult(request.data)
+	app.logger.info(json.loads(request.data))
+	result = swarmCaller.postResult(json.loads(request.data))
 	return '0'
 
 @app.route('/api/v1/result', methods=['DELETE'])
@@ -52,4 +54,7 @@ def apiDeleteResult():
 	return 'HTTP status 200 (OK)'
 
 if __name__ == '__main__':
+	handler = RotatingFileHandler('foo.log', maxBytes=10000, backupCount=1)
+	handler.setLevel(logging.INFO)
+	app.logger.addHandler(handler)
 	app.run(host='0.0.0.0',debug=True)

@@ -6,7 +6,7 @@ import time
 
 #def benchop(problem, method, apiIP):
 def benchop(problem,method):
-	oc = oct2py.Oct2Py()
+		
 	oc.addpath('/home/ccgroup13/')
 	start = time.time()
 	res = oc.benchop(problem, method)

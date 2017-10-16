@@ -1,3 +1,4 @@
+import json 
 def postResult(result):
 	with open('/home/ubuntu/result.txt', mode='a+') as file:
 		feeds={}

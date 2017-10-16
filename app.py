@@ -44,7 +44,7 @@ def result_get():
 
 @app.route('/api/v1/result', methods=['POST'])
 def result_post():
-	app.logger.info(request.data['1COS'])
+	app.logger.info(request.data)
 	result = swarmCaller.postResult(request.data)
 	return '0'
 

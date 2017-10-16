@@ -10,7 +10,7 @@ def benchop(problems=[1,2,3,4],methods=['MC','MC-S','QMC-S','MLMC','MLMC-A','FFT
 
 def getResult():
 	try:
-		with open('/home/ubuntu/result.txt', 'r') as file:
+		with open('result.txt', 'r') as file:
 			result = json.load(file)
 			file.close()
 			return result
@@ -18,7 +18,7 @@ def getResult():
 		return {}
 
 def postResult(result):
-	with open('/home/ubuntu/result.txt', mode='a+') as file:
+	with open('result.txt', mode='a+') as file:
 		feeds={}
 		try:
 			feeds = json.load(file)
@@ -30,7 +30,7 @@ def postResult(result):
 		return '0'
 
 def deleteResult():
-	with open('/home/ubuntu/result.txt', mode='a+') as f:
+	with open('result.txt', mode='a+') as f:
 		json.dump({}, f)
 		f.close()
 		return '0'

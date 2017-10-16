@@ -14,7 +14,7 @@ def startServices(problems, methods, ip):
 	
 	for problem in problems:
 		for method in methods:
-			subprocess.call("docker service create -w /home/ccgroup13 --replicas 1 --name benchop"+ str(problem) + method +" maxwatson142/worker /home/ccgroup13/benchop.py "+str(problem)+" "+method+" "+str(ip), shell=True)
+			subprocess.call("docker service create --workdir /home/ccgroup13 --replicas 1 --name benchop"+ str(problem) + method +" maxwatson142/worker python /home/ccgroup13/benchop.py "+str(problem)+" "+method+" "+str(ip), shell=True)
 	return '0'
 
 def getResult():

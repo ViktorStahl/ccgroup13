@@ -19,18 +19,18 @@ def getResult():
 
 def postResult(result):
 	with open('/home/ubuntu/result.txt', mode='a+') as file:
-		feeds=[]
+		feeds={}
 		try:
 			feeds = json.load(file)
 		except:
 			pass
-		feeds.append(result)
-		json.dump(feeds, file)
+		feeds.update(result)
+		json.dump({'Hello':10}, file)
 		file.close()
 		return '0'
 
 def deleteResult():
 	with open('/home/ubuntu/result.txt', mode='a+') as f:
-		json.dump([], f)
+		json.dump({}, f)
 		f.close()
 		return '0'

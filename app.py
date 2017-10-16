@@ -44,8 +44,13 @@ def result_get():
 
 @app.route('/api/v1/result', methods=['POST'])
 def result_post():
-	app.logger.info(request.form['problem'])
-	result = swarmCaller.postResult(request.form)
+	app.logger.info(request.form)
+	resdict = {}
+	resdict[request.form['problem'].encode('UTF8')+request.form['method'].encode('UTF8')] = {}
+	for word in request.form:
+		resdict[request.form['problem'].encode('UTF8')+request.form['method'].encode('UTF8')][word.encode('UTF8')] = request.form[word.encode('UTF8')].encode('UTF8')
+	app.logger.info(resdict)
+	result = swarmCaller.postResult(resdict)
 	return '0'
 
 @app.route('/api/v1/result', methods=['DELETE'])

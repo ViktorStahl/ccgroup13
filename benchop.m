@@ -1,18 +1,6 @@
-%clear
-%close all
-
-%format long
-
-% addpath(genpath('./')); %adds all the functions from subfolders to the path
-% mfiles=getfilenames('./','BSeuCallU*.m')
-
-%warning off
-%pkg load dataframe
-%echo off
 %Problems = {'1','2','3','4'}
  % Problem 1 a) I
 function bo = benchop(problem,method)
-
 Methods={'MC','MC-S','QMC-S','MLMC','MLMC-A',...
     'FFT','FGL','COS',...
     'FD','FD-NU','FD-AD',...
@@ -44,14 +32,9 @@ if (problem == 1)
 	cd(rootpath);
 	for el=1:numel(Methods)
 		if strcmp((Methods{el}),method)
-			display('Result for the given problem and method is : ');
-			%display(tBSeuCallUI(el));
-            index = el;
-            
+			bo = tBSeuCallUI(el);                
 		end
     end
-bo = tBSeuCallUI(index);    
-
 
 elseif (problem == 2)
 	% % Problem 1 b) I
@@ -81,11 +64,11 @@ elseif (problem == 2)
 	display(m)
 	for el=1:numel(Methods)
         if strcmp((Methods{el}),method)
-            display('Result for the given problem and method is : ');
-            index = el;
+            %display('Result for the given problem and method is : ');
+            %index = el;
+			bo = tBSamPutUI(el);
         end
     end 
-bo = tBSamPutUI(index);
 elseif (problem == 3)
 	% % % Problem 1 c) I
 
@@ -116,15 +99,14 @@ elseif (problem == 3)
 	display(m)
 	for el=1:numel(Methods)
         if strcmp((Methods{el}),method)
-            display('Result for the given problem and method is : ');
-            index = el;
+			bo = tBSupoutCallI(el); 
+			%index = el;
         end
     end
-bo = tBSupoutCallI(index) 
 	
 %  skippin Problem 1 a)  II because of octave incompatibility
 elseif (problem == 4)
-	 % Problem 1 b) II
+	% Problem 1 b) II
 
 	display('Problem 1 b) II');
 	rootpath=pwd;
@@ -153,12 +135,9 @@ elseif (problem == 4)
 	display(method)
 	for el=1:numel(Methods)
         if strcmp((Methods{el}),method)
-            display('Result for the given problem and method is : ');
-            display(tBSamPutUII(el))
-            index = el;
+			bo = tBSamPutUII(el);
         end
     end
-bo = tBSamPutUII(index);
  % skipping Problem 1 c) II because of octave incompatibility
 end
 

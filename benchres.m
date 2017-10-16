@@ -8,4 +8,4 @@ for i=1:numel(Methods)
 		benchop(j,Methods{i})
 	end
 end
-res = benchop(4, 'FD');
+benchop("4", 'FD');

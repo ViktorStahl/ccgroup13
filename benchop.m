@@ -5,7 +5,7 @@ Methods={'MC','MC-S','QMC-S','MLMC','MLMC-A',...
     'FFT','FGL','COS',...
     'FD','FD-NU','FD-AD',...
     'RBF','RBF-FD','RBF-PUM','RBF-LSML','RBF-AD','RBF-MLT'};
-if (problem == 1)
+if (problem == "1")
 	display('Problem 1 a) I');
 	display(method)
 	rootpath=pwd;
@@ -36,7 +36,7 @@ if (problem == 1)
 		end
     end
 
-elseif (problem == 2)
+elseif (problem == "2")
 	% % Problem 1 b) I
 	display('Problem 1 b) I');
 	rootpath=pwd;
@@ -69,7 +69,7 @@ elseif (problem == 2)
 			bo = tBSamPutUI(el);
         end
     end 
-elseif (problem == 3)
+elseif (problem == "3")
 	% % % Problem 1 c) I
 
 	display('Problem 1 c) I');
@@ -105,7 +105,7 @@ elseif (problem == 3)
     end
 	
 %  skippin Problem 1 a)  II because of octave incompatibility
-elseif (problem == 4)
+elseif (problem == "4")
 	% Problem 1 b) II
 
 	display('Problem 1 b) II');
@@ -141,37 +141,3 @@ elseif (problem == 4)
  % skipping Problem 1 c) II because of octave incompatibility
 end
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%for i=1:numel(Methods)
-%	C = {"Methods","Problem1","Problem2","Problem3","Problem4";Methods{i},tBSeuCallUI(i),tBSamPutUI(i),tBSupoutCallI(i),tBSamPutUII(i)};	
-%	dataframe(C)
-%end
-
-%display('tBSeucallUI')
-%Table2 = textable(tBSeuCallUI,tBSamPutUI, tBSupoutCallI,tBSamPutUII)
-%'RowNames',Methods}
-%Table2=table(tBSeuCallUI,tBSamPutUI,tBSupoutCallI,tBSamPutUII,'RowNames',Methods)
-%err=[rBSeuCallUI,rBSamPutUI,rBSupoutCallI,rBSamPutUII];
-%err=round(log10(err));
-
-% Now use this table as input in our input struct:
-%input.data = Table2;
-%input.error = err;
-
-% Set the row format of the data values (in this example we want to use
-% integers only):
-%input.dataFormat = {'%.1e'};
-
-% Switch transposing/pivoting your table:
-%input.transposeTable = 1;
-
-% Column alignment ('l'=left-justified, 'c'=centered,'r'=right-justified):
-%input.tableColumnAlignment = 'c';
-
-% Switch table borders on/off:
-%input.tableBorders = 0;
-
-% Switch to generate a complete LaTex document or just a table:
-%input.makeCompleteLatexDocument = 0;
-
-%latex = latexTable(input);

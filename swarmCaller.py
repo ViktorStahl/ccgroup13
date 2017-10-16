@@ -1,8 +1,13 @@
 import json
 import subprocess
 import os
+import thread
+#['MC','MC-S','QMC-S','MLMC','MLMC-A','FFT','FGL','COS','FD','FD-NU','FD-AD','RBF','RBF-FD','RBF-PUM','RBF-LSML','RBF-AD','RBF-MLT']
+def benchop(problems=[1,2,3,4],methods=['COS','FD', 'RBF-FD']):
+	thread.start_new_thread(startServices, (problems, methods))
+	return '0'
 
-def benchop(problems=[1,2,3,4],methods=['MC','MC-S','QMC-S','MLMC','MLMC-A','FFT','FGL','COS','FD','FD-NU','FD-AD','RBF','RBF-FD','RBF-PUM','RBF-LSML','RBF-AD','RBF-MLT']):
+def startServices(problems, methods)
 	for problem in problems:
 		for method in methods:
 			subprocess.call("docker service create --replicas 1 --name benchop"+ str(problem) + method +" maxwatson142/worker python benchop "+str(problem)+" "+method, shell=True)

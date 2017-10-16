@@ -18,14 +18,14 @@ def getResult():
 		return {}
 
 def postResult(result):
-	with open('/home/ubuntu/result.txt', mode='a+') as file:
+	with open('/home/ubuntu/result.txt', mode='w+') as file:
 		feeds={}
 		try:
 			feeds = json.load(file)
 		except:
 			pass
 		feeds.update(result)
-		json.dump({'Hello':10}, file)
+		json.dump(feeds, file)
 		file.close()
 		return '0'
 

@@ -1,11 +1,16 @@
 import json 
 def postResult(result):
-	with open('/home/ubuntu/result.txt', mode='a+') as file:
-		feeds={}
-		try:
-			feeds = json.load(file)
-		except:
-			pass
+	feeds = {}
+	try:
+		with open('result.txt', mode='r') as file:
+			feeds={}
+			try:
+				feeds = json.load(file)
+			except:
+				pass
+	except:
+		pass
+	with open('result.txt', mode='w+') as file:
 		feeds.update(result)
 		json.dump(feeds, file)
 		file.close()

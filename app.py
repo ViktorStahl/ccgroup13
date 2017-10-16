@@ -44,8 +44,8 @@ def result_get():
 
 @app.route('/api/v1/result', methods=['POST'])
 def result_post():
-	app.logger.info(json.loads(request.data))
-	result = swarmCaller.postResult(json.loads(request.data))
+	app.logger.info(request.form)
+	result = swarmCaller.postResult(request.form)
 	return '0'
 
 @app.route('/api/v1/result', methods=['DELETE'])

@@ -44,7 +44,6 @@ def result_get():
 
 @app.route('/api/v1/result', methods=['POST'])
 def result_post():
-	app.logger.info(request.form)
 	resdict = {}
 	resdict[request.form['problem'].encode('UTF8')+request.form['method'].encode('UTF8')] = {}
 	for word in request.form:

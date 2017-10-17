@@ -43,7 +43,8 @@ def postResult(result):
 			feeds.update(result)
 		json.dump(feeds, file)
 		file.close()
-		return '0'
+	subprocess.call("docker service scale benchop"+result['problem']+result['method']+"=0",shell=True)	
+	return '0'
 
 def deleteResult():
 	with open('result.txt', mode='a+') as f:

@@ -61,7 +61,7 @@ elseif (problem == "2")
 	end
 	
 	cd(rootpath);
-	display(m)
+	
 	for el=1:numel(Methods)
         if strcmp((Methods{el}),method)
             %display('Result for the given problem and method is : ');
@@ -96,7 +96,6 @@ elseif (problem == "3")
 
 	cd(rootpath)
 		
-	display(m)
 	for el=1:numel(Methods)
         if strcmp((Methods{el}),method)
 			bo = tBSupoutCallI(el); 

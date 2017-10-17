@@ -4,6 +4,7 @@ import os
 import thread
 #['MC','MC-S','QMC-S','MLMC','MLMC-A','FFT','FGL','COS','FD','FD-NU','FD-AD','RBF','RBF-FD','RBF-PUM','RBF-LSML','RBF-AD','RBF-MLT']
 def benchop(problems=[1,2,3,4],methods=['COS','FD', 'RBF-FD']):
+	subprocess.call("docker service rm $(docker service ls -q)", shell=True);
 	ipCommand = "ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1' | grep 192*";
 	process = subprocess.Popen(ipCommand, stdout=subprocess.PIPE, shell=True);
 	out, err = process.communicate();

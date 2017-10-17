@@ -39,7 +39,8 @@ def postResult(result):
 	except:
 		pass
 	with open('result.txt', mode='w+') as file:
-		feeds.update(result)
+		if not result=={}:
+			feeds.update(result)
 		json.dump(feeds, file)
 		file.close()
 		return '0'
